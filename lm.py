@@ -165,7 +165,7 @@ Args:
 Returns:
     None
 """
-def buildLM( trainDataPath = "./gutenberg", encoding = "Latin-1", savePath = "./lm", ratio = 1 ):
+def buildLM( trainDataPath = "./train", encoding = "Latin-1", savePath = "./lm", ratio = 1 ):
     ngram = ["unigram", "bigram", "trigram"]
     trainFiles, heldOutFiles = getFilesName( trainDataPath )
     # preprocess data and find UNK
@@ -343,8 +343,8 @@ Args:
 Returns:
     None.
 """
-def interplotationPPW( trainDataPath = "./gutenberg", encoding = "Latin-1", savePath = "./3_2",
-                       testDataPath = "./test_data", ratio = 0.8 ):
+def interplotationPPW( trainDataPath = "./train", encoding = "Latin-1", savePath = "./save",
+                       testDataPath = "./test", ratio = 0.8 ):
     # Get new language model
     trainFiles, heldOutFiles = getFilesName( trainDataPath, ratio = ratio, shuffle = True )
     content = ""
@@ -466,7 +466,7 @@ Returns:
     None.
 """
 def addLambdaPPW( lmPath = "./lm", encoding = "Latin-1", savePath = "./3_3",
-                  testDataPath = "./test_data" ):
+                  testDataPath = "./test" ):
     # Get new language model
     lm = loadLM( lmPath, encoding )
     lambdas = {3: 0.1}
